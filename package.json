@@ -1,0 +1,26 @@
+{
+  "name": "aws-creds-api",
+  "version": "1.0.0",
+  "description": "Simple API to set and get AWS credentials object.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.2",
+    "npm": ">=9.6"
+  },
+  "bin": {
+    "pm-creds": "index.js"
+  },
+  "author": {
+    "email": "jrposada.dev@gmail.com",
+    "name": "Javier Rodriguez Posada"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "commander": "^11.0.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}
