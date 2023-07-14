@@ -1,6 +1,6 @@
 {
   "name": "@jrposada/pm-creds",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Middle-ware between Postman and credentials providers.",
   "type": "module",
   "bin": {
