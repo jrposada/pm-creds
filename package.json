@@ -1,7 +1,7 @@
 {
   "name": "@jrposada/pm-creds",
   "version": "1.0.0",
-  "description": "Simple API to set and get AWS credentials object.",
+  "description": "Middle-ware between Postman and credentials providers.",
   "type": "module",
   "engines": {
     "node": ">=20.2",
