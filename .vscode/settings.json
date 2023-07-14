@@ -1,4 +1,7 @@
 {
   "editor.formatOnSave": true,
-  "cSpell.words": ["creds"]
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "cSpell.words": ["creds", "keyout", "selfsigned"]
 }

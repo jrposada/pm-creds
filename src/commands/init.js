@@ -1,5 +1,8 @@
 const action = () => {
-    console.log('init');
+    console.log('TODO');
+    console.log(
+        'Remember to run `pm-creds certs` at least once before running the main command',
+    );
 };
 
 const command = {

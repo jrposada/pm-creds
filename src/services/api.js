@@ -1,6 +1,8 @@
 import express, { json } from 'express';
+import fs from 'fs';
 import https from 'https';
 import AwsCreds from './aws-creds.js';
+import Config from './config.js';
 
 export default class Api {
     #instance;
@@ -30,7 +32,11 @@ export default class Api {
      * Starts api server.
      */
     start() {
-        https.createServer(this.#instance).listen(this.#port, () => {
+        const options = {
+            key: fs.readFileSync(Config.privateKeyFilepath),
+            cert: fs.readFileSync(Config.crtFilepath),
+        };
+        https.createServer(options, this.#instance).listen(this.#port, () => {
             console.log(`pm-creds listening on port ${this.#port}`);
         });
     }
@@ -70,7 +76,6 @@ export default class Api {
 
             try {
                 this.#awsCreds.update(request.body);
-                console.info('Data saved', this.#awsCreds.creds);
                 response.send('Ok');
             } catch (e) {
                 console.error('Could not save data', e);
@@ -78,12 +83,12 @@ export default class Api {
             }
         });
 
-        this.#instance.get('/test', (request, response) => {
-            console.log('GET /test');
+        // this.#instance.get('/test', (request, response) => {
+        //     console.log('GET /test');
 
-            console.log(request.body);
+        //     console.log(request.body);
 
-            response.send('Ok');
-        });
+        //     response.send('Ok');
+        // });
     }
 }

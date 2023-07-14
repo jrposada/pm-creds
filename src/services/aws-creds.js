@@ -34,7 +34,6 @@ export default class AwsCreds {
     }
 
     update(partialCreds) {
-        console.log({ partialCreds });
         Object.keys(partialCreds).forEach((profile) => {
             if (!partialCreds[profile] || partialCreds[profile] === {}) {
                 return;
@@ -75,7 +74,6 @@ export default class AwsCreds {
                 this.#setValue(profile, lineData[0], lineData[1]);
             }
         });
-        console.log(this.#creds);
     }
 
     #setValue(profile, key, value) {
