@@ -11,3 +11,6 @@ quote_type = single
 
 [*.json]
 indent_size = 2
+
+[*.yml]
+indent_size = 2

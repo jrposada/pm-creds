@@ -1,5 +1,5 @@
 {
-  "name": "pm-creds",
+  "name": "@jrposada/pm-creds",
   "version": "1.0.0",
   "description": "Simple API to set and get AWS credentials object.",
   "type": "module",
