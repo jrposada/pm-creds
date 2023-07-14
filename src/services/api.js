@@ -37,7 +37,7 @@ export default class Api {
             cert: fs.readFileSync(Config.crtFilepath),
         };
         https.createServer(options, this.#instance).listen(this.#port, () => {
-            console.log(`pm-creds listening on port ${this.#port}`);
+            console.info(`pm-creds listening on port ${this.#port}`);
         });
     }
 
@@ -48,7 +48,7 @@ export default class Api {
 
     #setupEndpoints() {
         this.#instance.get('/aws', (request, response) => {
-            console.log('GET /aws');
+            console.info('GET /aws');
 
             const creds = this.#awsCreds.get();
             response.setHeader('content-type', 'application/json');
@@ -56,7 +56,7 @@ export default class Api {
         });
 
         this.#instance.get('/aws/:profile', (request, response) => {
-            console.log('GET /aws/:profile');
+            console.info('GET /aws/:profile');
 
             const creds = this.#awsCreds.get(request.params.profile);
 
@@ -72,7 +72,7 @@ export default class Api {
         });
 
         this.#instance.put('/aws', (request, response) => {
-            console.log('PUT /aws');
+            console.info('PUT /aws');
 
             try {
                 this.#awsCreds.update(request.body);

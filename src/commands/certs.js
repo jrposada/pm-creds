@@ -2,7 +2,7 @@ import fs from 'fs';
 import selfsigned from 'selfsigned';
 import Config from '../services/config.js';
 
-const action = async () => {
+const action = () => {
     const certs = selfsigned.generate(null, { days: 365 });
 
     fs.writeFileSync(Config.crtFilepath, certs.cert);

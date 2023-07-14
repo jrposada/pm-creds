@@ -25,7 +25,7 @@ export default class AwsCreds {
 
         this.#parseFile(resolvedPath);
 
-        console.log(`Watching file "${resolvedPath}"`);
+        console.info(`Watching file "${resolvedPath}"`);
         chokidar
             .watch(resolvedPath, { usePolling: true })
             .on('change', (path) => {
