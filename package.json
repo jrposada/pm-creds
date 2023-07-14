@@ -3,10 +3,6 @@
   "version": "1.0.1",
   "description": "Middle-ware between Postman and credentials providers.",
   "type": "module",
-  "engines": {
-    "node": ">=20.2",
-    "npm": ">=9.6"
-  },
   "bin": {
     "pm-creds": "index.js"
   },
