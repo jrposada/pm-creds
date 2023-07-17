@@ -1,4 +1,28 @@
-## Postman pre-script
+# Getting started
+
+1. Install
+
+    ```shell
+    npm i @jrposada/pm-creds -g
+    ```
+
+2. Create config files and self-signed certificates
+
+    ```shell
+    pm-creds init
+    ```
+
+3. Start server
+
+    ```shell
+    pm-creds
+    ```
+
+## Configure Postman
+
+Add the next `pre-script` to postman. It will request the target AWS profile define through `aws_profile` and inject the tokens it into the request. For AWS you also need to select "AWS Signature" as auth method:
+
+![Postman Auth Tab](./docs/postman-auth-config.png)
 
 ```
 let profile = pm.collectionVariables.get("aws_profile");
