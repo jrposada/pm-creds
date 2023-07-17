@@ -2,6 +2,10 @@
   "name": "@jrposada/pm-creds",
   "version": "1.0.2",
   "description": "Middle-ware between Postman and credentials providers.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrposada/pm-creds.git"
+  },
   "type": "module",
   "bin": {
     "pm-creds": "index.js"
