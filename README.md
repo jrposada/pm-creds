@@ -18,6 +18,15 @@
     pm-creds
     ```
 
+## Install Self Signed Certificate
+
+### Windows
+
+1. Open Manage user certificates. Press **Windows logo key** and search **Manage user certificates**
+2. Select **Trusted Root Certification Authorities** from the list.
+3. Go to **Action** -> **All Tasks** -> **Import...**
+4. Select `~/.pm-creds/cert.crt`
+
 ## Configure Postman
 
 Add the next `pre-script` to postman. It will request the target AWS profile define through `aws_profile` and inject the tokens it into the request. For AWS you also need to select "AWS Signature" as auth method:
@@ -55,3 +64,9 @@ pm.sendRequest({
     }
 )
 ```
+
+### Postman certificates
+
+**This step is only needed if certificates where not installed through the system.**
+
+![Postman Certificates](./docs/postman-certificates.png)

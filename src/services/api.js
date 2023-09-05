@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express, { json } from 'express';
 import fs from 'fs';
 import https from 'https';
@@ -37,12 +38,15 @@ export default class Api {
             cert: fs.readFileSync(Config.crtFilepath),
         };
         https.createServer(options, this.#instance).listen(this.#port, () => {
-            console.info(`pm-creds listening on port ${this.#port}`);
+            console.info(
+                `pm-creds listening on port https://localhost:${this.#port}`,
+            );
         });
     }
 
     #createInstance() {
         this.#instance = express();
+        this.#instance.use(cors());
         this.#instance.use(json());
     }
 
