@@ -51,6 +51,12 @@ export default class Api {
     }
 
     #setupEndpoints() {
+        this.#setupGetAws();
+        this.#setupGetAwsByProfile();
+        this.#setupPutAws();
+    }
+
+    #setupGetAws() {
         this.#instance.get('/aws', (request, response) => {
             console.info('GET /aws');
 
@@ -58,7 +64,9 @@ export default class Api {
             response.setHeader('content-type', 'application/json');
             response.send(JSON.stringify(creds));
         });
+    }
 
+    #setupGetAwsByProfile() {
         this.#instance.get('/aws/:profile', (request, response) => {
             console.info('GET /aws/:profile');
 
@@ -74,25 +82,20 @@ export default class Api {
                     .send(`Unknown profile "${request.params.profile}"`);
             }
         });
+    }
 
+    #setupPutAws() {
         this.#instance.put('/aws', (request, response) => {
             console.info('PUT /aws');
 
             try {
                 this.#awsCreds.update(request.body);
+                response.setHeader('content-type', 'application/json');
                 response.send('Ok');
             } catch (e) {
                 console.error('Could not save data', e);
                 response.status(400).send('Error');
             }
         });
-
-        // this.#instance.get('/test', (request, response) => {
-        //     console.log('GET /test');
-
-        //     console.log(request.body);
-
-        //     response.send('Ok');
-        // });
     }
 }
