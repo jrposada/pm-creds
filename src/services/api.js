@@ -34,8 +34,8 @@ export default class Api {
      */
     start() {
         const options = {
-            key: fs.readFileSync(Config.privateKeyFilepath),
-            cert: fs.readFileSync(Config.crtFilepath),
+            key: fs.readFileSync(Config.serverKey),
+            cert: fs.readFileSync(Config.serverCert),
         };
         https.createServer(options, this.#instance).listen(this.#port, () => {
             console.info(

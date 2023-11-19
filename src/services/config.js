@@ -16,15 +16,24 @@ export default class Config {
         return this._dir;
     }
 
-    static get pemFilepath() {
-        return path.join(Config.dir, 'ca-cert.pem');
+    static get caKey() {
+        return path.join(Config.dir, 'ca.key');
     }
 
-    static get crtFilepath() {
-        return path.join(Config.dir, 'server.crt');
+    static get caCert() {
+        return path.join(Config.dir, 'ca.crt');
     }
 
-    static get privateKeyFilepath() {
+    static get serverKey() {
         return path.join(Config.dir, 'server.key');
+    }
+
+    // Certificate Signing Request
+    static get serverCsr() {
+        return path.join(Config.dir, 'server.csr');
+    }
+
+    static get serverCert() {
+        return path.join(Config.dir, 'server.crt');
     }
 }
