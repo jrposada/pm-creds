@@ -21,10 +21,10 @@ export default class Config {
     }
 
     static get crtFilepath() {
-        return path.join(Config.dir, 'cert.crt');
+        return path.join(Config.dir, 'server.crt');
     }
 
     static get privateKeyFilepath() {
-        return path.join(Config.dir, 'key');
+        return path.join(Config.dir, 'server.key');
     }
 }
