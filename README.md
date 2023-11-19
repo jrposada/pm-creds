@@ -25,7 +25,7 @@
 1. Open Manage user certificates. Press **Windows logo key** and search **Manage user certificates**
 2. Select **Trusted Root Certification Authorities** from the list.
 3. Go to **Action** -> **All Tasks** -> **Import...**
-4. Select `~/.pm-creds/cert.crt`
+4. Select `~/.pm-creds/ca.crt`
 
 ## Configure Postman
 
