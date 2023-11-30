@@ -36,4 +36,12 @@ export default class Config {
     static get serverCert() {
         return path.join(Config.dir, 'server.crt');
     }
+
+    static get pidFile() {
+        return path.join(Config.dir, 'daemon.pid');
+    }
+
+    static get logFile() {
+        return path.join(Config.dir, 'log.log');
+    }
 }
