@@ -18,6 +18,18 @@
     pm-creds
     ```
 
+    You may also use run command as a daemon
+
+    ```shell
+    pm-creds --daemon
+    ```
+
+    To stop daemon process
+
+    ```shell
+    pm-creds stop
+    ```
+
 ## Install Self Signed Certificate
 
 ### Windows
