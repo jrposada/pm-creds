@@ -1,8 +1,10 @@
+# PM Creds
+
 [![Version](https://img.shields.io/npm/v/@jrposada/pm-creds.svg)](https://www.npmjs.com/package/@jrposada/pm-creds)
 [![Downloads](https://img.shields.io/npm/dm/@jrposada/pm-creds.svg)](https://www.npmjs.com/package/@jrposada/pm-creds)
 [![Install Size](https://packagephobia.now.sh/badge?p=@jrposada/pm-creds)](https://packagephobia.now.sh/result?p=@jrposada/pm-creds)
 
-# Getting started
+## Getting started
 
 1. Install
 
@@ -34,16 +36,16 @@
     pm-creds stop
     ```
 
-## Install Self Signed Certificate
+### Install Self Signed Certificate
 
-### Windows
+#### Windows
 
 1. Open Manage user certificates. Press **Windows logo key** and search **Manage user certificates**
 2. Select **Trusted Root Certification Authorities** from the list.
 3. Go to **Action** -> **All Tasks** -> **Import...**
 4. Select `~/.pm-creds/ca.crt`
 
-## Configure Postman
+### Configure Postman
 
 Add the next `pre-script` to postman. It will request the target AWS profile define through `aws_profile` and inject the tokens it into the request. For AWS you also need to select "AWS Signature" as auth method:
 
@@ -81,7 +83,7 @@ pm.sendRequest({
 )
 ```
 
-### Postman certificates
+#### Postman certificates
 
 **This step is only needed if certificates where not installed through the system.**
 
