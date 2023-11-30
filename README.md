@@ -1,3 +1,7 @@
+[![Version](https://img.shields.io/npm/v/@jrposada/pm-creds.svg)](https://www.npmjs.com/package/@jrposada/pm-creds)
+[![Downloads](https://img.shields.io/npm/dm/@jrposada/pm-creds.svg)](https://www.npmjs.com/package/@jrposada/pm-creds)
+[![Install Size](https://packagephobia.now.sh/badge?p=@jrposada/pm-creds)](https://packagephobia.now.sh/result?p=@jrposada/pm-creds)
+
 # Getting started
 
 1. Install
