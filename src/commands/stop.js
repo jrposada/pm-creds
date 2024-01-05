@@ -18,16 +18,20 @@ const action = async (options) => {
     const cmd = processes.find((p) => p.pid === +daemonPid)?.cmd;
 
     if (cmd?.split(' ')[1] === daemonExecPath) {
-        treeKill(daemonPid, 'SIGTERM', (err) => {
-            if (err) {
-                console.error(
-                    `Error killing process with PID ${daemonPid}: ${err.message}`,
-                );
-            } else {
-                console.log(
-                    `Process with PID ${daemonPid} terminated successfully.`,
-                );
-            }
+        await new Promise((resolve) => {
+            treeKill(daemonPid, 'SIGTERM', (err) => {
+                if (err) {
+                    console.error(
+                        `Error killing process with PID ${daemonPid}: ${err.message}`,
+                    );
+                } else {
+                    console.log(
+                        `Process with PID ${daemonPid} terminated successfully.`,
+                    );
+                }
+
+                resolve();
+            });
         });
     } else {
         console.log('No matching process running');

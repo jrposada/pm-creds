@@ -8,6 +8,7 @@ program
     .command(main.name, { isDefault: true })
     .description(main.description)
     .option('-d, --daemon', 'Run as a daemon')
+    .option('-f, --force', 'Stops any running instances first')
     .action(main.action);
 program.command(stop.name).description(stop.description).action(stop.action);
 program.command(init.name).description(init.description).action(init.action);

@@ -4,16 +4,19 @@ import { env } from 'node:process';
 import Api from '../services/api.js';
 import AwsCreds from '../services/aws-creds.js';
 import Config from '../services/config.js';
+import stopCommand from './stop.js';
 
-const action = (options) => {
+const action = async (options) => {
     if (options.daemon) {
-        if (fs.existsSync(Config.pidFile)) {
+        if (!options.force && fs.existsSync(Config.pidFile)) {
             console.error('Error:');
             console.error('  Looks like PID file already exist');
             console.error(
                 '  Remember to run `pm-creds stop` to stop and cleanup daemon process',
             );
             return 1;
+        } else if (options.force) {
+            await stopCommand.action();
         }
 
         daemonizeProcess({
