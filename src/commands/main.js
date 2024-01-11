@@ -19,6 +19,7 @@ const action = async (options) => {
             await stopCommand.action();
         }
 
+        console.info('Starting daemon...');
         daemonizeProcess({
             env: Object.assign(env, {
                 _OUTPUT_PID: '1',
