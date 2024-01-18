@@ -3,7 +3,7 @@ import psList from 'ps-list';
 import treeKill from 'tree-kill';
 import Config from '../services/config.js';
 
-const action = async (options) => {
+const action = async () => {
     if (!fs.existsSync(Config.pidFile)) {
         console.log('No information about running process');
         return 0;

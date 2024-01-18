@@ -10,7 +10,7 @@ export default class Config {
         if (!fs.existsSync(this._dir)) {
             throw new Error(`Could not found path "${this._dir}".`);
         } else if (!fs.statSync(this._dir).isDirectory()) {
-            throw new Error(`Path "${filepath}" is not a directory.`);
+            throw new Error(`Path "${this._dir}" is not a directory.`);
         }
 
         return this._dir;
