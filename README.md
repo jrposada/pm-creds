@@ -76,7 +76,6 @@ pm.sendRequest({
             console.log(`using aws credentials from '${profile}'`)
             return
         } else {
-            console.log(err)
             throw new Error(response.text() || JSON.stringify(err) || "unknown error fetching aws credentials")
         }
     }
@@ -84,7 +83,5 @@ pm.sendRequest({
 ```
 
 #### Postman certificates
-
-**This step is only needed if certificates where not installed through the system.**
 
 ![Postman Certificates](./docs/postman-certificates.png)
