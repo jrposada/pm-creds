@@ -16,7 +16,7 @@ jobs:
     name: 'Lint: Commits'
     uses: jrposada/github-actions/.github/workflows/conventional-commits.yml@v1
 
-  get-version:
+  release:
     name: Get version
     needs: [lint-commits]
     permissions:
@@ -26,10 +26,10 @@ jobs:
 
   publish:
     name: Publish
-    if: needs.get-version.outputs.published == 'true'
-    needs: [get-version]
-    uses: ./.github/workflows/npm-publish.yml
+    if: needs.release.outputs.published == 'true'
+    needs: [release]
+    uses: jrposada/github-actions/.github/workflows/npm-publish.yml@feat/npm-publish
     with:
-      version: ${{ needs.get-version.outputs.version }}
+      version: ${{ needs.release.outputs.version }}
     secrets:
       token: ${{ secrets.NPM_TOKEN }}
