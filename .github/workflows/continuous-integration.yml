@@ -29,7 +29,7 @@ jobs:
     if: needs.get-version.outputs.published == 'true'
     needs: [get-version]
     uses: jrposada/github-actions/.github/workflows/npm-publish.yml@feat/npm-publish
-    secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     with:
       version: ${{ needs.get-version.outputs.version }}
+    secrets:
+      token: ${{ secrets.NPM_TOKEN }}
