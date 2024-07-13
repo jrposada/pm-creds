@@ -26,7 +26,7 @@ jobs:
 
   publish:
     name: Publish
-    if: needs.get-version.outputs.published == true
+    if: needs.get-version.outputs.published == 'true'
     needs: [get-version]
     secrets: inherit
     uses: jrposada/github-actions/.github/workflows/npm-publish.yml@feat/npm-publish
