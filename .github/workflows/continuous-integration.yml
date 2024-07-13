@@ -1,0 +1,34 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+      - beta
+  pull_request:
+    branches:
+      - main
+      - beta
+  workflow_dispatch:
+
+jobs:
+  lint-commits:
+    name: 'Lint: Commits'
+    uses: jrposada/github-actions/.github/workflows/conventional-commits.yml@v1
+
+  get-version:
+    name: Get version
+    needs: [lint-commits]
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: jrposada/github-actions/.github/workflows/semantic-release.yml@v1
+
+  publish:
+    name: Publish
+    if: needs.get-version.outputs.published == true
+    needs: [get-version]
+    secrets: inherit
+    uses: jrposada/github-actions/.github/workflows/npm-publish.yml@feat/npm-publish
+    with:
+      version: ${{needs.get-version.outputs.version}}
