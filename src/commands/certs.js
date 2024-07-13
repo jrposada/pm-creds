@@ -56,7 +56,10 @@ const action = () => {
                 -sha256`,
         );
 
-        console.log('Certificates generated successfully.');
+        console.info('Certificates generated successfully.');
+        console.info(
+            '    Note that validation period is 365 days. To re-generate on demand run `pm-creds certs`',
+        );
     } catch (error) {
         console.error('Error generating certificates:', error.message);
     }

@@ -13,9 +13,6 @@ const action = () => {
 
     console.info('\nGenerating certs...\n');
     certs.action();
-    console.info(
-        '    Note that validation period is 365 days. To re-generate on demand run `pm-creds certs`',
-    );
 
     console.info('\npm-creds has been initialized successfully.\n');
     console.info('    Run `pm-creds` to start.');
