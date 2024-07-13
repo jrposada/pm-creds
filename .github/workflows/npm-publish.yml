@@ -1,0 +1,33 @@
+name: Publish package
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        type: string
+        description: 'Package version. It will be written in package.json'
+    secrets:
+      token:
+        required: true
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20.2
+          registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - name: Set version
+        if: inputs.version
+        run: |
+          npm version ${{inputs.version}} --no-git-tag-version
+
+      - name: Publish to npm registry
+        run: |
+          npm publish --access=public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.token }}
