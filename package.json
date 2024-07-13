@@ -25,6 +25,7 @@
     "tree-kill": "^1.2.2"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.2.2",
     "prettier": "^3.0.0"
   }
 }
