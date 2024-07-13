@@ -28,7 +28,7 @@ jobs:
     name: Publish
     if: needs.release.outputs.published == 'true'
     needs: [release]
-    uses: jrposada/github-actions/.github/workflows/npm-publish.yml@feat/npm-publish
+    uses: jrposada/github-actions/.github/workflows/npm-publish.yml@v1
     with:
       version: ${{ needs.release.outputs.version }}
     secrets:
