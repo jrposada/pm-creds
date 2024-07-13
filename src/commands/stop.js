@@ -5,7 +5,7 @@ import Config from '../services/config.js';
 
 const action = async (options) => {
     if (!fs.existsSync(Config.pidFile)) {
-        console.log('No information about running process');
+        console.info('No information about running process');
         return 0;
     }
 
@@ -25,7 +25,7 @@ const action = async (options) => {
                         `Error killing process with PID ${daemonPid}: ${err.message}`,
                     );
                 } else {
-                    console.log(
+                    console.info(
                         `Process with PID ${daemonPid} terminated successfully.`,
                     );
                 }
@@ -34,12 +34,12 @@ const action = async (options) => {
             });
         });
     } else {
-        console.log('No matching process running');
+        console.info('No matching process running');
     }
 
     fs.rmSync(Config.pidFile);
 
-    console.log('Process has been stopped');
+    console.info('Process has been stopped');
 };
 
 const command = {

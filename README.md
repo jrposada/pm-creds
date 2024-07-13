@@ -44,6 +44,8 @@
 2. Select **Trusted Root Certification Authorities** from the list.
 3. Go to **Action** -> **All Tasks** -> **Import...**
 4. Select `~/.pm-creds/ca.crt`
+5. Accept install prompts.
+6. Verify installation by checking **pm-creds-ca** certificate is under **Trusted Root Certification Authorities** > **Certificates**
 
 ### Configure Postman
 

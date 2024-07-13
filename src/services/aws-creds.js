@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 export default class AwsCreds {
-    #creds;
+    #creds = {};
 
     /**
      *
@@ -35,7 +35,10 @@ export default class AwsCreds {
 
     update(partialCreds) {
         Object.keys(partialCreds).forEach((profile) => {
-            if (!partialCreds[profile] || partialCreds[profile] === {}) {
+            if (
+                !partialCreds[profile] ||
+                !Object.keys(partialCreds[profile]).length
+            ) {
                 return;
             }
 
@@ -54,7 +57,6 @@ export default class AwsCreds {
     }
 
     #parseFile(filepath) {
-        this.#creds = {};
         let profile;
         const data = fs
             .readFileSync(filepath, {
