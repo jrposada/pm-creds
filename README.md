@@ -47,6 +47,14 @@
 5. Accept install prompts.
 6. Verify installation by checking **pm-creds-ca** certificate is under **Trusted Root Certification Authorities** > **Certificates**
 
+#### Mac
+
+1. Run
+
+```shell
+sudo security add-trusted-cert -d -r trustRoot -k "/Library/Keychains/System.keychain" ~/.pm-creds/ca.crt
+```
+
 ### Configure Postman
 
 Add the next `pre-script` to postman. It will request the target AWS profile define through `aws_profile` and inject the tokens it into the request. For AWS you also need to select "AWS Signature" as auth method:
